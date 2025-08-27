@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment ES6</title>
+  </head>
+  <body>
+    <script>
+      // 1、 Let、Const 和 Var
+      const name = 'Alice'; //Outer variable, initialized once and never reassigned
+      if (true) {
+        let name = 'Bob'; //Block-scoped variable, only valid inside the if block
+        console.log(name); //Bob
+      }
+      console.log(name); //Alice
+
+      // 2、Arrow Function
+      //   function add(a, b) {
+      //     return a + b;
+      //   }
+      const add = (a, b) => a + b;
+
+      // Regular function: this depends on how the function is called.
+      // Arrow function: this is fixed to the this value of the surrounding scope at the time of definition and does not change based on how it is called.
+
+      //3、Template Literals
+      let greeting = `Hello, ${name}! \nWelcome to the course.`;
+      console.log(greeting);
+
+      //4、Destructuring
+      const person = {
+        name1: 'Alice',
+        age: 25,
+        city: 'Sydney',
+      };
+
+      const { name1, age } = person;
+      console.log(name1);
+      console.log(age);
+
+      const introduce = ({ name, age }) => {
+        console.log(`My name is ${name} and I am ${age} years old.`);
+      };
+      introduce(person);
+
+      //  5、 Default Parameters
+      function calculateArea(width, height) {
+        return width * height;
+      }
+      calculateArea(5); //25
+
+      // 6、Rest/Spread运算符
+      function sum(...numbers) {
+        return numbers.reduce((total, num) => total + num, 0);
+      }
+      console.log(sum(1, 2, 3));
+      console.log(sum(1, 2, 3, 4, 5));
+
+      let arr1 = [1, 2, 3];
+      let arr2 = [4, 5, 6];
+      let mergedArr = [...arr1, ...arr2];
+      console.log(mergedArr); //[1, 2, 3, 4, 5, 6]
+    </script>
+  </body>
+</html>
